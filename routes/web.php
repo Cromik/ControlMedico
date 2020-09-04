@@ -27,8 +27,9 @@ Route::post('deletePaciente', 'PacienteController@deletePaciente')->name('pacien
 Route::post('getPaciente', 'PacienteController@getPaciente')->name('paciente.getpaciente');
 
 //Route::get('paciente', 'pacienteController@show')->name('paciente.show');
-Route::get('paciente', 'pacienteController@index')->name('paciente.index');
+Route::get('paciente', 'PacienteController@index')->name('paciente.index');
 Route::get('pacienteid', 'PacienteController@getPacienteByID')->name('paciente.showid');
+Route::get('paciente/filtro','PacienteController@indexjson')->name('paciente.filtro');
 
 
 

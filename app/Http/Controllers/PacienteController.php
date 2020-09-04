@@ -13,19 +13,13 @@ class PacienteController extends Controller
 {
     public function index()
     {
-        return datatables()->of(User::all())->toJson()->make(true);
+        $paciente = User::all();
+        return view('paciente.index', compact('paciente'));
     }
 
-    public function getPacienteByID(Request $request)
+    public function indexjson()
     {
-        if ($request['identificacion'] == "") {
-            $paciente = User::all();
-        } else {
-            $filtro = $request['identificacion'];
-            $paciente = User::where('identificacion', $filtro)->get();
-        }
-        
-        return view('paciente.index', compact('paciente'));
+        return datatables()->of(User::all())->toJson()->toJson();
     }
 
 

@@ -213,7 +213,7 @@
     $('#pacientes').DataTable({
         "processing": true,
         "serverSide": true,
-        "ajax": "/paciente"
+        "ajax": {{route('paciente.filtro')}}
     });
 } );
 </script>

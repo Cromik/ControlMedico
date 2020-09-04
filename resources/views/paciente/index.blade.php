@@ -64,12 +64,17 @@
                                 <thead>
                                     <tr>
                                         <th>identificacion</th>
+                                        <th>Nombre</th>
+                                        <th>Correo</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach( $paciente as $paciente)
                                     <tr>
                                         <th>{{$paciente->identificacion}}</th>
+                                        <th>{{$paciente->name}}</th>
+                                        <th>{{$paciente->email}}</th>
                                     </tr>
                                 @endforeach
                                 </tfoot>
