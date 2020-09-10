@@ -99,7 +99,7 @@
       <div class="col-12">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Lista Historial del Pacientes</h3>
+            <h3 class="card-title">Historial de Citas</h3>
           </div>
           <!-- /.card-header -->
           <div class="card-body">

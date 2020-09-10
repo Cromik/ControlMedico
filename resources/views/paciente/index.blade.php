@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Consulta Pacientes</h1>
+                    <h1>Listado de Pacientes</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Consulta</a></li>
-                        <li class="breadcrumb-item active">Consulta Pacientes</li>
+                        <li class="breadcrumb-item"><a href="#">Paciente</a></li>
+                        <li class="breadcrumb-item active">Lista Pacientes</li>
                     </ol>
                 </div>
             </div>
@@ -22,7 +22,7 @@
     <div class="container-fluid">
         <div class="card card-success">
             <div class="card-header">
-                <h3 class="card-title">Filtros de Búsquedas</h3>
+                <h3 class="card-title">Opciones</h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse">
                         <i class="fas fa-minus"></i>
@@ -31,21 +31,12 @@
             </div>
             <div class="card-body">
                 @csrf
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label>Número Identificación:</label>
-                            <input name="identificacion" id="idIdentificacion" type="text" class="form-control" />
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="row">
                     <div class="col-sm-3">
-                        <input type="button" id="btnAgregar" onclick="modalPaciente()" class="btn btn-block btn-success" data-toggle="modal" data-target="#modal-Paciente" value="Agregar" />
+                        <input type="button" id="btnAgregar" onclick="modalPaciente()" class="btn btn-block btn-primary" data-toggle="modal" data-target="#modal-Paciente" value="Agregar" />
                     </div>
-                    <div class="col-sm-3">
-                        <button type="submit" class="btn btn-block btn-primary" onclick="btnGetPaciente()">Buscar</button>
-                    </div>
+                   
                 </div>
             </div>
         </div>
@@ -57,7 +48,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Lista de Pacientes</h3>
+                            <h3 class="card-title">Registros</h3>
                         </div>
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">

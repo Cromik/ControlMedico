@@ -59,7 +59,18 @@ Route::get('historial/{historial}', 'HistorialController@show')->name('historial
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/index', 'HomeController@index')->name('home');
+
+
+Route::get('/agenda','AgendarController@index')->name('agenda.index');
+
+
+Route::get('/simulador', function () {
+    return view('simulador.index');
+})->name('simulador');
+
+
+Route::get('/colores','ColorController@index')->name('mantenimiento.colores');
 
 
 

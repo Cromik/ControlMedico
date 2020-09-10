@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Dynamis | Consulta Usuarios</title>
+    <title>DentalTER | Inicio</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
@@ -52,8 +52,8 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="{{ url('/home') }}" class="brand-link brand-link navbar-cyan">
-                <img src="{{ asset('/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Dynamis</span>
+                <img src="{{ asset('/img/logo3.png') }}" alt="DentalTER Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <span class="brand-text font-weight-light">DentalTER</span>
             </a>
 
             <!-- Sidebar -->
@@ -76,7 +76,7 @@
                             <a href="#" class="nav-link active">
                                 <i class="nav-icon fas fa-table"></i>
                                 <p>
-                                    Consultas
+                                    Paciente
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
@@ -84,19 +84,19 @@
                                 <li class="nav-item">
                                     <a href="{{ url('/paciente') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Consultar Pacientes</p>
+                                        <p>Maestro de Pacientes</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ url('/historial') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Historial Pacientes</p>
+                                        <p>Historiales</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ url('/mihistorial') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Ver mi Historial</p>
+                                        <p>Mi Perfil</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -117,7 +117,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ url('/agendarCitas') }}" class="nav-link">
+                                    <a href="{{route('agenda.index')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Agendar</p>
                                     </a>
@@ -130,6 +130,43 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="nav-item has-treeview menu-open">
+                            <a href="#" class="nav-link active">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>
+                                    Ortodoncia
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('simulador')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Simulador</p>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview menu-open">
+                            <a href="#" class="nav-link active">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>
+                                    Mantenimiento
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('mantenimiento.colores')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Colores</p>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -235,6 +272,16 @@
             });
         });
     </script>
+
+
+<script>
+  $.widget.bridge('uibutton', $.ui.button);
+</script>
+<script src="bower_components/raphael/raphael.min.js"></script>
+<script src="bower_components/morris.js/morris.min.js"></script>
+<script src="bower_components/morris.js/morris.min.js"></script>
+
+
 </body>
 
 </html>

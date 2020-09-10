@@ -17,8 +17,9 @@ class HistorialController extends Controller
         //$historial = HistorialPaciente::all();
         //dd($historial);
         return view('historial.index')->with([
-            'paciente' => User::all()
-        ]);
+            'paciente' => User::all(),
+            //'cita' => Cita::all();
+            ]);
     }
 
 

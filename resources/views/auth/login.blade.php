@@ -20,7 +20,7 @@
 <body class="hold-transition login-page">
   <div class="login-box">
     <div class="card-body">
-      <img class="img-fluid pad" src="./img/logo_login.jpg" alt="Photo">
+      <img class="img-fluid pad" src="./img/banner.png" alt="Photo">
     </div>
     <div class="card">
       <div class="card-body login-card-body">
@@ -60,7 +60,7 @@
                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                 <label class="form-check-label" for="remember">
-                  {{ __('Remember Me') }}
+                  Recuérdame
                 </label>
               </div>
             </div>
@@ -72,7 +72,7 @@
             <div class="col-12">
               @if (Route::has('password.request'))
               <a class="btn btn-link" href="{{ route('password.request') }}">
-                {{ __('Forgot Your Password?') }}
+                ¿No puedes iniciar sesión?
               </a>
               @endif
             </div>

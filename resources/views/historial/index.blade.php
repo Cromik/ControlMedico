@@ -28,21 +28,7 @@
         </button>
       </div>
     </div>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="form-group">
-            <label>Número Identificación:</label>
-            <input type="text" class="form-control" />
-          </div>
-        </div>
-      </div>
-      <center>
-        <div class="col-sm-3">
-          <input type="button" id="btnBuscar" class="btn btn-block btn-primary" value="Buscar" />
-        </div>
-      </center>
-    </div>
+    
   </div>
 </div>
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\HistorialPaciente;
 use App\Retorno;
+use App\Cita;
 
 class MiHistorialController extends Controller
 {
@@ -16,7 +17,7 @@ class MiHistorialController extends Controller
     public function index()
     {
         return view('mihistorial.index')->with([
-            'mihistorial' => HistorialPaciente::all()
+            'mihistorial' => Cita::all()
         ]);
     }
 
