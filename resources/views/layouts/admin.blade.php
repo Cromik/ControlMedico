@@ -7,21 +7,26 @@
     <title>DentalTER | Inicio</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
- 
+    <!-- <link rel="stylesheet" href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">  -->
+
 
     <link rel="stylesheet" href="{{ asset('/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- DataTables -->
-    <!-- <link rel="stylesheet" href="{{ asset('/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}"> -->
-    <!-- <link rel="stylesheet" href="{{ asset('/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}"> -->
+    <link rel="stylesheet" href="{{ asset('/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('/dist/css/adminlte.min.css') }}">
-    
+    <link rel="stylesheet" href="{{ asset('/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/plugins/daterangepicker/daterangepicker.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/procesando.css') }}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -31,19 +36,119 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="{{ url('/home') }}" role="button"><i class="fas fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="{{ url('/home') }}" role="button">
+                        <i class="fas fa-bars"></i>
+                    </a>
                 </li>
             </ul>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a style="background-color: #343a40;" class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">Cerrar Sesión
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                </li>
 
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="far fa-bell"></i>
+                        <span class="badge badge-warning navbar-badge">20</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <a href="#" class="dropdown-item">
+                            <!-- Message Start -->
+                            <div class="media">
+                                <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                                <div class="media-body">
+                                    <h3 class="dropdown-item-title">
+                                        Brad Diesel
+                                        <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                                    </h3>
+                                    <p class="text-sm">Call me whenever you can...</p>
+                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                                </div>
+                            </div>
+                            <!-- Message End -->
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <!-- Message Start -->
+                            <div class="media">
+                                <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                                <div class="media-body">
+                                    <h3 class="dropdown-item-title">
+                                        John Pierce
+                                        <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                                    </h3>
+                                    <p class="text-sm">I got your message bro</p>
+                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                                </div>
+                            </div>
+                            <!-- Message End -->
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <!-- Message Start -->
+                            <div class="media">
+                                <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                                <div class="media-body">
+                                    <h3 class="dropdown-item-title">
+                                        Nora Silvester
+                                        <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                                    </h3>
+                                    <p class="text-sm">The subject goes here</p>
+                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                                </div>
+                            </div>
+                            <!-- Message End -->
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <img src="../dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle" style="width: 25px;">
+                        {{ Auth::user()->name }}
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <div class="card-widget widget-user">
+                            <!-- Add the bg color to the header using any of the bg-* classes -->
+                            <div class="widget-user-header bg-info">
+                                <h3 class="widget-user-username">{{ Auth::user()->name }}</h3>
+                                @if (Auth::user()->rol == 0)
+                                <h5 class="widget-user-desc">Administrador</h5>
+                                @endif
+                                @if (Auth::user()->rol == 1)
+                                <h5 class="widget-user-desc">Odontólogo</h5>
+                                @endif
+                                @if (Auth::user()->rol == 2)
+                                <h5 class="widget-user-desc">Paciente</h5>
+                                @endif
+                            </div>
+                            <div class="widget-user-image">
+                                <img class="img-circle elevation-2" src="../dist/img/user1-128x128.jpg" alt="User Avatar">
+                            </div>
+                            <div class="card-footer">
+                                <div class="row">
+                                    <div class="col-sm-6 border-right">
+                                        <div class="description-block">
+                                            <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="description-block">
+
+                                            <a class="btn btn-default btn-flat" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sign Out
+                                            </a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -128,6 +233,12 @@
                                         <p>Administrar</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{route('citas.index')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Ver Citas</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li class="nav-item has-treeview menu-open">
@@ -145,7 +256,7 @@
                                         <p>Simulador</p>
                                     </a>
                                 </li>
-                                
+
                             </ul>
                         </li>
                         <li class="nav-item has-treeview menu-open">
@@ -163,8 +274,14 @@
                                         <p>Colores</p>
                                     </a>
                                 </li>
-                                
+                                <li class="nav-item">
+                                    <a href="{{route('mantenimiento.tratamiento')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Tratamientos</p>
+                                    </a>
+                                </li>
                             </ul>
+
                         </li>
 
                     </ul>
@@ -230,58 +347,76 @@
     <!-- Bootstrap 4 -->
     <script src="{{ asset('/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- DataTables -->
- 
-    <script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-       <!--
+
+    <!-- <script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> -->
+
     <script src="{{ asset('/plugins/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ asset('/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>  -->
+    <script src="{{ asset('/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
     <!-- AdminLTE App -->
-    
+
 
     <script src="{{ asset('/dist/js/adminlte.min.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('/dist/js/demo.js') }}"></script>
 
-    <!-- page script -->
-<script>
-    $(document).ready( function () {
-    $('#pacientes').DataTable({
-        "processing": true,
-        "serverSide": true,
-        "ajax": {{route('paciente.filtro')}}
-    });
-} );
-</script>
+    <script src="{{ asset('/plugins/daterangepicker/daterangepicker.js') }}"></script>
+
+    <script src="{{ asset('/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') }}"></script>
+
     
+
+    <script src="{{ asset('/plugins/moment/moment.min.js') }}"></script>
+
+    <script src="{{ asset('/plugins/inputmask/min/jquery.inputmask.bundle.min.js') }}"></script>
+<!-- date-range-picker -->
+
+
+
+
+
+    <!-- page script 
+    <script>
+        $(document).ready(function() {
+            $('#pacientes').DataTable({
+                "processing": true,
+                "serverSide": true,
+                //"ajax": {{route('paciente.filtro')}}
+            });
+        });
+    </script>
+-->
     <script>
         $(function() {
-            $("#example1").DataTable({
-                "responsive": true,
-                "autoWidth": false,
-            });
-            $('#example2').DataTable({
+            
+            $('#example1').DataTable({
                 "paging": true,
-                "lengthChange": false,
-                "searching": false,
+                "searching": true,
                 "ordering": true,
-                "info": true,
                 "autoWidth": false,
+                "pageLength": 10,
                 "responsive": true,
+                "language": {
+                    url: "{{ asset('/idioma/espaniol.json') }}"
+                },
             });
+            
+            $('.my-colorpicker1').colorpicker()
         });
     </script>
 
 
-<script>
-  $.widget.bridge('uibutton', $.ui.button);
-</script>
-<script src="bower_components/raphael/raphael.min.js"></script>
-<script src="bower_components/morris.js/morris.min.js"></script>
-<script src="bower_components/morris.js/morris.min.js"></script>
+    <script>
+      //  $.widget.bridge('uibutton', $.ui.button);
+    </script>
 
+    <!--
+    <script src="bower_components/raphael/raphael.min.js"></script>
+    <script src="bower_components/morris.js/morris.min.js"></script>
+    <script src="bower_components/morris.js/morris.min.js"></script>
 
+    -->
 </body>
 
 </html>

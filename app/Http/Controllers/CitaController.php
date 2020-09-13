@@ -14,8 +14,8 @@ class CitaController extends Controller
      */
     public function index()
     {
-       
-       
+        return view('citas.index');
+        //return view('cita.index'); 
     }
 
     /**
@@ -23,9 +23,9 @@ class CitaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function registrar()
     {
-        //
+        return view('citas.registrar');
     }
 
     /**

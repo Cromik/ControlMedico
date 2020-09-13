@@ -15,8 +15,9 @@ class CreateCitasTable extends Migration
     {
         Schema::create('citas', function (Blueprint $table) {
             $table->id();
-            $table->string('pacienteid')->default('');
+            $table->string('agendaid')->default('');
             $table->string('descripcion')->default('');
+            
             $table->timestamps();
         });
     }

@@ -29,7 +29,7 @@ Route::post('getPaciente', 'PacienteController@getPaciente')->name('paciente.get
 //Route::get('paciente', 'pacienteController@show')->name('paciente.show');
 Route::get('paciente', 'PacienteController@index')->name('paciente.index');
 Route::get('pacienteid', 'PacienteController@getPacienteByID')->name('paciente.showid');
-Route::get('paciente/filtro','PacienteController@indexjson')->name('paciente.filtro');
+Route::get('paciente/filtro', 'PacienteController@indexjson')->name('paciente.filtro');
 
 
 
@@ -43,7 +43,7 @@ Route::view('/agendarCitas', 'agendarCitas')->name('viewagendarCitas');
 Route::view('/consultaHistorial', 'consultaHistorial')->name('viewconsultaHistorial');
 
 
-Route::resource('mihistorial','MiHistorialController');
+Route::resource('mihistorial', 'MiHistorialController');
 
 //Route::get('mihistorial', 'MiHistorialController@index')->name('mihistorial.index');
 //Route::get('/mihistorial/create', 'MiHistorialController@create')->name('mihistorial.create');
@@ -62,16 +62,23 @@ Auth::routes();
 Route::get('/index', 'HomeController@index')->name('home');
 
 
-Route::get('/agenda','AgendarController@index')->name('agenda.index');
+Route::get('/agenda', 'AgendarController@index')->name('agenda.index');
 
 
 Route::get('/simulador', function () {
     return view('simulador.index');
 })->name('simulador');
 
+//COLORES
+Route::get('/colores', 'ColorController@index')->name('mantenimiento.colores');
 
-Route::get('/colores','ColorController@index')->name('mantenimiento.colores');
+//TRATAMIENTOS
+Route::get('/tratamientos', 'TratamientoController@index')
+    ->name('mantenimiento.tratamiento');
 
+//REGISTRAR CITAS
+Route::get('citas', 'CitaController@index')
+    ->name('citas.index');
 
-
-
+Route::get('citas/registrar', 'CitaController@registrar')
+    ->name('citas.registrar');

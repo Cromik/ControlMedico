@@ -31,12 +31,12 @@
             </div>
             <div class="card-body">
                 @csrf
-                
+
                 <div class="row">
                     <div class="col-sm-3">
                         <input type="button" id="btnAgregar" onclick="modalPaciente()" class="btn btn-block btn-primary" data-toggle="modal" data-target="#modal-Paciente" value="Agregar" />
                     </div>
-                   
+
                 </div>
             </div>
         </div>
@@ -57,18 +57,23 @@
                                         <th>identificacion</th>
                                         <th>Nombre</th>
                                         <th>Correo</th>
-
+                                        <th>teléfono</th>
+                                        <th>---</th>
+                                        <th>---</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach( $paciente as $paciente)
+                                    @foreach( $paciente as $paciente)
                                     <tr>
-                                        <th>{{$paciente->identificacion}}</th>
-                                        <th>{{$paciente->name}}</th>
-                                        <th>{{$paciente->email}}</th>
+                                        <td>{{$paciente->identificacion}}</td>
+                                        <td>{{$paciente->name}}</td>
+                                        <td>{{$paciente->email}}</td>
+                                        <td>{{$paciente->telefono}}</td>
+                                        <td><input type="button" class="btn btn-success" value="Modificar" /></td>
+                                        <td><input type="button" class="btn btn-success" value="Eliminar" /></td>
                                     </tr>
-                                @endforeach
-                                </tfoot>
+                                    @endforeach
+                                    </tfoot>
                             </table>
                         </div>
                     </div>
@@ -254,75 +259,13 @@
         </div>
     </div>
 
-
-    <script>
+    <script>  
         function myFunction() {
-            alert("Page is loaded");
-
             var identificacion = $("#idIdentificacion").val();
             var urlAction = "{{ route('paciente.getpaciente') }}";
             var token = "{{csrf_token()}}";
-
-            //getPac();
-            //getPaciente1(identificacion, urlAction, token);
         }
-
-
-
-
-        function getPaciente1(identificacion, urlAction, token) {
-            $(".cartprocess").fadeTo(2500, 0.50,
-                function() {
-                    $.ajax({
-                        url: urlAction,
-                        type: 'POST',
-                        dataType: "json",
-                        data: {
-                            '_token': token,
-                            'identificacion': identificacion,
-                        },
-                        success: function(Retorno) {
-                            $('.cartprocess').hide();
-
-                            alert(Retorno.MensajeRetorno);
-                            var table = $('#pacientes').DataTable();
-                             table.load();
-                             //var data = table.row( $(this).parents('tr') ).data();
-                        },
-                        error: function() {
-                            $('.cartprocess').hide();
-                            alert('A ocurrido error inesperado, vuelve a intentar más tarde.. gracias por su compresion.');
-                        },
-                    });
-                });
-        }
-
-
-
-        function getPac() {
-            $('#ejemplo1').DataTable({
-                "order": [[0, "asc"]],
-                "language": {
-                    "lengthMenu": "Mostrar _MENU_ registros por página",
-                    "zeroRecords": "No se encontraron resultados",
-                    "sEmptyTable": "Ningún dato disponible en esta tabla",
-                    "info": "Mostrando página _PAGE_ de _PAGES_",
-                    "infoEmpty": "Ningún dato disponible en esta tabla",
-                    "infoFiltered": "(filtered from _MAX_ total records)",
-                    "sSearch": "Filtro:",
-                    "oPaginate": {
-                        "sFirst": "Primero",
-                        "sLast": "Último",
-                        "sNext": "Siguiente",
-                        "sPrevious": "Anterior"
-                    },
-                },
-                "columns": [
-                    { "data": "identificacion", "orderable": false, "Title": "identificacion" }
-                ],
-            });
-        }
-
+    
 
 
         function modalPaciente() {

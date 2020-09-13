@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Listado de Colores</h1>
+                    <h1>Listado de Citas</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Mantenimiento</a></li>
-                        <li class="breadcrumb-item active">Colores</li>
+                        <li class="breadcrumb-item"><a href="#">Citas</a></li>
+                        <li class="breadcrumb-item active">Consulta</li>
                     </ol>
                 </div>
             </div>
@@ -34,8 +34,9 @@
 
                 <div class="row">
                     <div class="col-sm-3">
-                        <input type="button" id="btnAgregar" onclick="modalPaciente()" class="btn btn-block btn-primary" data-toggle="modal" data-target="#modal-lg" value="Agregar" />
+                        <input type="button" id="btnAgregar" onclick="modalPaciente()" data-toggle="modal" data-target="#modal-lg" class="btn btn-block btn-primary" data-toggle="modal" data-target="#modal-Paciente" value="Agregar" />
                     </div>
+
                 </div>
             </div>
         </div>
@@ -47,29 +48,22 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Registros de Colores</h3>
+                            <h3 class="card-title">Registros de Citas</h3>
                         </div>
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Id</th>
-                                        <th>Descripcion</th>
-                                        <th>Valor</th>
-                                        <th>Color</th>
+                                        <th>Fecha</th>
+                                        <th>Hora</th>
+                                        <th>Paciente</th>
+                                        <th>Tratamiento</th>
+                                        <th>Comentario</th>
                                         <th>Estado</th>
-                                        <th>---</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Rojo</td>
-                                        <td>#9E2222</td>
-                                        <td>Color</td>
-                                        <td><i style="background-color: #FF0000; color: #FF0000;" class="fas fa-square fa-lg"></i></td>
-                                        <td><button type="submit" onclick="btnSavePaciente()" class="btn btn-success">Modificar</button></td>
-                                    </tr>
+
                                     </tfoot>
                             </table>
                         </div>
@@ -83,7 +77,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Registrar Colores Brackers</h4>
+                    <h4 class="modal-title">Registrar Tratamiento</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -99,13 +93,15 @@
                                 </div>
                             </div>
                         </div>
-
+                        
                     </div>
                     <div class="row">
-                        <div class="col-sm-6">
+                    <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Valor:</label>
-                                <input type="text" class="form-control my-colorpicker1 colorpicker-element" data-colorpicker-id="1" data-original-title="" title="">
+                                <div class="input-group">
+                                    <input id="txValor" type="text" class="form-control" data-mask="" im-insert="true">
+                                </div>
                             </div>
                         </div>
                         <div class="col-sm-4">
@@ -114,22 +110,17 @@
                                 <div class="input-group">
                                     <div class="custom-control custom-checkbox">
                                         <input class="custom-control-input" type="checkbox" id="customCheckbox2" checked="">
-                                        <label for="customCheckbox2" class="custom-control-label">Estado</label>
+                                        <label for="customCheckbox2" class="custom-control-label">SubMenú</label>
                                     </div>
 
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <button type="submit" class="btn btn-success btn-block">&nbsp;&nbsp;&nbsp;Registrar&nbsp;&nbsp;&nbsp;</button>
-                        </div>
-                        <div class="col-sm-4">
-                            <button type="button" class="btn btn-danger btn-block" data-dismiss="modal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cerrar
-                                &nbsp;&nbsp;&nbsp;</button>
-                        </div>
-                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">&nbsp;&nbsp;&nbsp;Cerrar&nbsp;&nbsp;&nbsp;</button>
+                    <button type="button" onclick="GuardarMiHistorial()" class="btn btn-success">&nbsp;&nbsp;&nbsp;Guardar&nbsp;&nbsp;&nbsp;</button>
                 </div>
             </div>
         </div>
@@ -141,4 +132,5 @@
         }
     </script>
 </body>
+
 @endsection

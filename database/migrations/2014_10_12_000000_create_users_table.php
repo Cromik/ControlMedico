@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('genero')->nullable();
             $table->string('fechaNacimiento')->nullable();
             $table->string('estado')->nullable();
+            $table->integer('rol')->nullable(); //0=admin 1=doctor 2=paciente
             $table->rememberToken();
             $table->timestamps();
         });
